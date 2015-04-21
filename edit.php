@@ -48,7 +48,7 @@ mysqli_close($conn);
   </body>
   <div class="container">
    
-    <form class="form-signin" action="processor.php" method="post">
+    <form class="form-signin" action="update.php" method="post">
       <h2 class="form-signin-heading">Input the word</h2>
       <label for="inputEmail" class="sr-only">Word</label>
       <input type="text" id="word" name="word" class="form-control" placeholder="Enter Word" required autofocus>
@@ -58,6 +58,7 @@ mysqli_close($conn);
       
       <textarea rows="4" cols="50"  id="sentence" name="sentence" class="form-control" placeholder="Enter Relevent Sentence" ></textarea>
     </br>
+	<input type="hidden" name="id" id="id" value="0">
     <button class="btn btn-lg btn-primary btn-block" type="submit">Update Word</button> </br>
     <a class="btn btn-success center-block" href="list.php" role="button">See All Words</a>
   </form>
@@ -73,7 +74,8 @@ mysqli_close($conn);
 
 <script>
   $(document).ready(function(){
-   
+     $id =  "<?php echo $id; ?>"; 
+    $("#id").val( $id );  
     $word =  "<?php echo $word; ?>"; 
     $("#word").val( $word );
 
